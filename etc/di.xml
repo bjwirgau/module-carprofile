@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Razoyo\CarProfile\Api\CarManagementInterface"
+                type="Razoyo\CarProfile\Model\CarManagement"/>
+    <preference for="Razoyo\CarProfile\Api\CarRequestInterface"
+                type="Razoyo\CarProfile\Model\CarRequest"/>
+    <preference for="Razoyo\CarProfile\Api\ConfigProviderInterface"
+                type="Razoyo\CarProfile\Model\ConfigProvider"/>
+</config>

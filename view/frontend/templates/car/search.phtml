@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $block \Razoyo\CarProfile\Block\Customer\MyCar
+ */
+declare(strict_types=1);
+?>
+
+<div id="car-search-component" data-bind="scope:'carsearchcomponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script>
+        window.searchCarUrl = '<?= $block->getSearchCarUrl(); ?>';
+        window.saveCarUrl = '<?= $block->getSaveCarUrl(); ?>';
+    </script>
+    <script type="text/x-magento-init">
+        {
+            "#car-search-component": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "carsearchcomponent": {
+                            "component": "Razoyo_CarProfile/js/car/search"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>

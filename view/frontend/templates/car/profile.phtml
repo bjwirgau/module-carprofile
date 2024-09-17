@@ -1,0 +1,91 @@
+<?php
+/**
+ * @var $block \Razoyo\CarProfile\Block\Customer\MyCarProfile
+ * @var $escaper \Magento\Framework\Escaper
+ */
+declare(strict_types=1);
+?>
+
+<?php if (!($profileId = $block->getCarProfileId())): ?>
+    <div class="messages">
+        <div class="message notice">
+            <div>
+                <?= $block->escapeHtml(__('No Car Profile Has Been Saved. ')); ?>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="<?= $escaper->escapeHtml($block->getUrl('razoyo/car/index')) ?>">
+            <button type="button" class="action primary">
+                <span>Find My Car</span>
+            </button>
+        </a>
+    </div>
+<?php else: ?>
+    <?php $profileData = $block->getCarProfileData($profileId); ?>
+    <div class="car-profile">
+        <div class="image-wrapper">
+            <div class="car-image">
+                <img src="<?= $escaper->escapeHtml($profileData['car']['image']) ?>" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="details-wrapper">
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'details')">Details</button>
+            <button class="tablinks" onclick="openTab(event, 'features')">Features</button>
+        </div>
+
+        <div id="details" class="tabcontent">
+            <table class="data table">
+                <tbody>
+                    <tr>
+                        <th class="col label" scope="row"><?= __('Make') ?></th>
+                        <td class="col data"><?= $escaper->escapeHtml($profileData['car']['make']) ?></td>
+                    </tr>
+                    <tr>
+                        <th class="col label" scope="row"><?= __('Model') ?></th>
+                        <td class="col data"><?= $escaper->escapeHtml($profileData['car']['model']) ?></td>
+                    </tr>
+                    <tr>
+                        <th class="col label" scope="row"><?= __('Year') ?></th>
+                        <td class="col data"><?= $escaper->escapeHtml($profileData['car']['year']) ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="features" class="tabcontent">
+            <table class="data table">
+                <tbody>
+                    <tr>
+                        <th class="col label" scope="row"><?= __('MPG') ?></th>
+                        <td class="col data"><?= $escaper->escapeHtml($profileData['car']['mpg']) ?></td>
+                    </tr>
+                    <tr>
+                        <th class="col label" scope="row"><?= __('Seats') ?></th>
+                        <td class="col data"><?= $escaper->escapeHtml($profileData['car']['seats']) ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        </script>
+    </div>
+
+<?php endif; ?>

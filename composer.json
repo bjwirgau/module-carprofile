@@ -1,0 +1,27 @@
+{
+  "name": "bjwirgau/module-carprofile",
+  "description": "Razoyo Car Profile Extension",
+  "type": "magento2-module",
+  "authors": [{
+    "name": "Brandon Wirgau",
+    "email": "brandonjoelwirgau@gmail.com",
+    "role": "developer"
+  }],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Razoyo\\CarProfile\\": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

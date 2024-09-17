@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <razoyo_car_profile>
+            <general>
+                <enabled>1</enabled>
+                <endpoint>https://exam.razoyo.com/api/cars</endpoint>
+            </general>
+        </razoyo_car_profile>
+    </default>
+</config>

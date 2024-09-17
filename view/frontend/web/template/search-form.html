@@ -1,0 +1,44 @@
+<div class="component-wrapper">
+    <div class="field search-wrapper">
+        <div class="control">
+            <input  name="mycarsearch"
+                    id="mycarsearch"
+                    list="mycarsearch-options"
+                    type="text"
+                    class="input-text"
+                    placeholder="Search For Your Car By Make">
+            <datalist id="mycarsearch-options" data-bind="foreach: makes">
+                <option data-bind="value: $data">
+            </datalist>
+        </div>
+    </div>
+
+    <div class="button-wrapper">
+        <button type="button" class="action action-search primary" data-bind="click: searchByMake">
+            <span data-bind="i18n: 'Search'"></span>
+        </button>
+    </div>
+
+    <form id="carForm" data-bind="submit: saveCar">
+        <div class="search-results-wrapper">
+            <!-- ko if: emptySearch -->
+                <div class="messages">
+                    <div class="message notice">
+                        <div data-bind="i18n: 'No results found'"></div>
+                    </div>
+                </div>
+            <!-- /ko -->
+            <div class="car-list" data-bind="foreach: searchResults">
+                <div class="car-selection-wrapper">
+                    <input data-bind="attr: {type: 'radio', id: id, name: 'make'}, value: id, class: 'car-selection'">
+                    <label data-bind="attr: {for: id}, text: year + ' ' + make + ' ' + model, class: 'car-selection-label'"></label><br>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <button id="submit-car-preference-button" class="action primary" type="submit" disabled>
+            <span data-bind="i18n: 'Save My Car'"></span>
+        </button>
+    </form>
+</div>

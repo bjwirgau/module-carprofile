@@ -1,0 +1,52 @@
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  border-bottom: 0;
+
+  button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+
+  button:hover {
+    background-color: #ddd;
+  }
+
+  button.active {
+    background-color: #fff;
+  }
+}
+
+.tabcontent {
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.details-wrapper {
+  height: 150px;
+  margin: 2em auto;
+
+  #details {
+    display: block;
+  }
+
+  .table {
+    tr {
+      td, th {
+        border: none;
+        width: 50%;
+      }
+    }
+    tr:nth-child(even) {
+      background-color: rgba(0,0,0,0.05);
+    }
+  }
+}
