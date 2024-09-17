@@ -7,6 +7,11 @@
                 <value id="razoyo_api" type="host">exam.razoyo.com</value>
             </values>
         </policy>
+        <policy id="img-src">
+            <values>
+                <value id="razoyo_img" type="host">https://exam.razoyo.com</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
 
