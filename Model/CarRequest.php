@@ -75,7 +75,7 @@ class CarRequest implements CarRequestInterface
         return $url . '?' . http_build_query($params);
     }
 
-    public function buildClient(?string $token): void
+    private function buildClient(?string $token): void
     {
         $this->curlClient->setOptions([
             CURLOPT_RETURNTRANSFER      => true,
