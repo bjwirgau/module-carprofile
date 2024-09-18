@@ -13,6 +13,10 @@ class MyCar extends Template
      */
     private UrlInterface $urlBuilder;
 
+    /**
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Framework\UrlInterface $urlBuilder
+     */
     public function __construct(
         Template\Context $context,
         UrlInterface $urlBuilder
@@ -21,6 +25,9 @@ class MyCar extends Template
         $this->urlBuilder = $urlBuilder;
     }
 
+    /**
+     * @return string|null
+     */
     public function getSearchCarUrl(): ?string
     {
        return $this->urlBuilder->getUrl(null,[
@@ -29,6 +36,9 @@ class MyCar extends Template
        ]);
     }
 
+    /**
+     * @return string|null
+     */
     public function getSaveCarUrl(): ?string
     {
         return $this->urlBuilder->getUrl(null, [

@@ -34,6 +34,15 @@ class MyCarProfile extends Template
      */
     private SerializerInterface $serializer;
 
+    /**
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Customer\Api\CustomerRepositoryInterface $customerRepository
+     * @param \Razoyo\CarProfile\Api\CarManagementInterface $carManagement
+     * @param \Magento\Customer\Model\Session $customerSession
+     * @param \Magento\Framework\Serialize\SerializerInterface $serializer
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         CustomerRepositoryInterface $customerRepository,
@@ -51,6 +60,9 @@ class MyCarProfile extends Template
         $this->serializer = $serializer;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCarProfileId(): ?string
     {
         try {
@@ -65,6 +77,10 @@ class MyCarProfile extends Template
         return null;
     }
 
+    /**
+     * @param string $profileId
+     * @return array|null
+     */
     public function getCarProfileData(string $profileId): ?array
     {
         $searchResults = $this->carManagement->getCars();

@@ -26,6 +26,11 @@ class CarRequest implements CarRequestInterface
         $this->curlClient = $curlClient;
     }
 
+    /**
+     * @param string $url
+     * @param string|null $token
+     * @return array
+     */
     public function request(string $url, ?string $token): array
     {
         try {
